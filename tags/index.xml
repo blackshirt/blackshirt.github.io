@@ -6,10 +6,6 @@
     <description>Recent content in Tags on the website title shown on the tab</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© blackshirt</copyright>
-    
-	<atom:link href="https://blackshirt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>©blackshirt</copyright><atom:link href="https://blackshirt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

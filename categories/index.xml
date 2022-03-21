@@ -6,6 +6,34 @@
     <description>Recent content in Categories on Hi Folks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© blackshirt 2022</copyright><atom:link href="https://blackshirt.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© blackshirt 2022</copyright>
+    <lastBuildDate>Mon, 21 Mar 2022 14:24:35 +0700</lastBuildDate><atom:link href="https://blackshirt.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>crypto</title>
+      <link>https://blackshirt.github.io/categories/crypto/</link>
+      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
+      
+      <guid>https://blackshirt.github.io/categories/crypto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mac</title>
+      <link>https://blackshirt.github.io/categories/mac/</link>
+      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
+      
+      <guid>https://blackshirt.github.io/categories/mac/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>poly1305</title>
+      <link>https://blackshirt.github.io/categories/poly1305/</link>
+      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
+      
+      <guid>https://blackshirt.github.io/categories/poly1305/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

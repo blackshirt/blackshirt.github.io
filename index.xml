@@ -15,7 +15,7 @@
       
       <guid>https://blackshirt.github.io/series/poly1305/poly1305-introduction/</guid>
       <description>Table of Contents
- Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&amp;rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439.</description>
+ Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) originally created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&amp;rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439.</description>
     </item>
     
   </channel>

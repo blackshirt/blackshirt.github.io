@@ -7,14 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© blackshirt 2022</copyright>
-    <lastBuildDate>Mon, 21 Mar 2022 14:24:35 +0700</lastBuildDate><atom:link href="https://blackshirt.github.io/series/poly1305/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Mar 2022 09:04:54 +0700</lastBuildDate><atom:link href="https://blackshirt.github.io/series/poly1305/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Poly1305 Part1</title>
-      <link>https://blackshirt.github.io/series/poly1305-part1/</link>
-      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
+      <title>Poly1305 - Introduction</title>
+      <link>https://blackshirt.github.io/series/poly1305/poly1305-introduction/</link>
+      <pubDate>Mon, 21 Mar 2022 09:04:54 +0700</pubDate>
       
-      <guid>https://blackshirt.github.io/series/poly1305-part1/</guid>
-      <description>This is part&amp;rsquo;s 1 series of poly1305 related posts</description>
+      <guid>https://blackshirt.github.io/series/poly1305/poly1305-introduction/</guid>
+      <description>Table of Contents
+ Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&amp;rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439.</description>
     </item>
     
   </channel>

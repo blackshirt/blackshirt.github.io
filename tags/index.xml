@@ -6,34 +6,6 @@
     <description>Recent content in Tags on Hi Folks</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© blackshirt 2022</copyright>
-    <lastBuildDate>Mon, 21 Mar 2022 14:24:35 +0700</lastBuildDate><atom:link href="https://blackshirt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>mac</title>
-      <link>https://blackshirt.github.io/tags/mac/</link>
-      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
-      
-      <guid>https://blackshirt.github.io/tags/mac/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>poly1305</title>
-      <link>https://blackshirt.github.io/tags/poly1305/</link>
-      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
-      
-      <guid>https://blackshirt.github.io/tags/poly1305/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>v</title>
-      <link>https://blackshirt.github.io/tags/v/</link>
-      <pubDate>Mon, 21 Mar 2022 14:24:35 +0700</pubDate>
-      
-      <guid>https://blackshirt.github.io/tags/v/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>© blackshirt 2022</copyright><atom:link href="https://blackshirt.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

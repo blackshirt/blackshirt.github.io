@@ -10,12 +10,12 @@
     <lastBuildDate>Mon, 21 Mar 2022 09:04:54 +0700</lastBuildDate><atom:link href="https://blackshirt.github.io/series/poly1305/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Poly1305 - Introduction</title>
-      <link>https://blackshirt.github.io/series/poly1305/poly1305-introduction/</link>
+      <link>https://blackshirt.github.io/series/poly1305-introduction/</link>
       <pubDate>Mon, 21 Mar 2022 09:04:54 +0700</pubDate>
       
-      <guid>https://blackshirt.github.io/series/poly1305/poly1305-introduction/</guid>
-      <description>Table of Contents
- Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) originally created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&amp;rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439.</description>
+      <guid>https://blackshirt.github.io/series/poly1305-introduction/</guid>
+      <description>This post is first series i&amp;rsquo;m trying to write about of my intense works in writing (actually porting) poly1305 module for V language. I hope i can make series of writing in this topics. If you look this part is not worth to read, you can skip this part and goes to others part in contents below. Currently, its hasn&amp;rsquo;t been published, i would publish it when its ready.
+Table of Contents</description>
     </item>
     
   </channel>

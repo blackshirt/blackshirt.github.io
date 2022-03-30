@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta property="og:title" content="Poly1305 - Introduction" />
-<meta property="og:description" content="Table of Contents
- Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) originally created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439." />
+<meta property="og:description" content="This post is first series i&rsquo;m trying to write about of my intense works in writing (actually porting) poly1305 module for V language. I hope i can make series of writing in this topics. If you look this part is not worth to read, you can skip this part and goes to others part in contents below. Currently, its hasn&rsquo;t been published, i would publish it when its ready.
+Table of Contents" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blackshirt.github.io/series/poly1305/poly1305-introduction/" /><meta property="article:section" content="series" />
+<meta property="og:url" content="https://blackshirt.github.io/series/poly1305-introduction/" /><meta property="article:section" content="series" />
 <meta property="article:published_time" content="2022-03-21T09:04:54+07:00" />
 <meta property="article:modified_time" content="2022-03-21T09:04:54+07:00" />
 
@@ -15,8 +15,8 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Poly1305 - Introduction"/>
-<meta name="twitter:description" content="Table of Contents
- Part 1 - Introduction Part 2 - Benchmarking Part 3 - Optimizing and speed up  About Poly1305 Poly1305 is a cryptographic message authentication code (MAC) originally created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in RFC 8439."/>
+<meta name="twitter:description" content="This post is first series i&rsquo;m trying to write about of my intense works in writing (actually porting) poly1305 module for V language. I hope i can make series of writing in this topics. If you look this part is not worth to read, you can skip this part and goes to others part in contents below. Currently, its hasn&rsquo;t been published, i would publish it when its ready.
+Table of Contents"/>
 
   
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
@@ -35,11 +35,11 @@
   
   
   
-  <link rel="stylesheet" href="/minima.1648546012.css">
+  <link rel="stylesheet" href="/minima.1648612071.css">
 
   
   
-  <script defer type="text/javascript" src="/minima.1648546012.js"></script>
+  <script defer type="text/javascript" src="/minima.1648612071.js"></script>
 </head>
 <script>
   
@@ -100,16 +100,28 @@
 <main>
 	<p></p>
 	<article class="md">
-		<p><strong>Table of Contents</strong></p>
+		<p>This post is first series i&rsquo;m trying to write about of my intense works in writing (actually porting) <code>poly1305</code> module for <a href="https://github.com/vlang/v">V language</a>. I hope i can make series of writing in this topics.
+If you look this part is not worth to read, you can skip this part and goes to others part in contents below. Currently, its hasn&rsquo;t been published, i would publish it when its ready.</p>
+<p><strong>Table of Contents</strong></p>
 <ul>
-<li><a href="#">Part 1 - Introduction</a></li>
-<li><a href="/series/poly1305/poly1305-benchmarking">Part 2 - Benchmarking</a></li>
-<li><a href="/series/poly1305/poly1305-speedup">Part 3 - Optimizing and speed up</a></li>
+<li><a href="#">Part 1 - Introduction -<strong>You&rsquo;re here</strong></a></li>
+<li><a href="/series/poly1305-benchmarking">Part 2 - Benchmarking</a></li>
+<li><a href="/series/poly1305-speedup">Part 3 - Optimizing and speed up</a></li>
 </ul>
-<h1 id="about-poly1305">About Poly1305</h1>
-<p>Poly1305 is a cryptographic message authentication code (MAC) originally created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. A variant of Bernstein&rsquo;s Poly1305 that does not require AES has been standardized by the Internet Engineering Task Force in <a href="https://datatracker.ietf.org/doc/html/rfc8439">RFC 8439</a>.</p>
-<h1 id="algorithm">Algorithm</h1>
-<p>Poly1305 takes a 32-byte one-time key and an arbitrary length of message and produces a 16-byte tag. Poly1305 is a relatively simple MAC algorithm as we can look at <a href="https://datatracker.ietf.org/doc/html/rfc8439">RFC 8439</a>, in pseudocode (in modified and commented version):</p>
+<p>Let&rsquo;s begin by background about what is <code>Poly1305</code> and related concepts.</p>
+<h3 id="what-is-message-authentication-code-mac">What is message authentication code (MAC)</h3>
+<p>In cryptography world, a message authentication code (MAC), sometimes known as a tag, is a short piece of information used for authenticating a message. In other words, to confirm that the message came from the stated sender (its authenticity) and has not been changed. The MAC value protects a message&rsquo;s data integrity, as well as its authenticity, by allowing verifiers (who also possess the secret key) to detect any changes to the message content.</p>
+<p>Generally speaking, message authentication works with three mechanism.</p>
+<ul>
+<li>First, there is a key generation mechanism that selects a key from the keyspace uniformly at random.</li>
+<li>Second, there is also a signing mechanism that generates a tag given the key and message.</li>
+<li>Finally, there is a verifying mechanism that helps to authenticate a message that is given the key and the tag.</li>
+</ul>
+<p>Generally, MAC functions are similar to cryptographic hash functions that provides sufficient integrity, but its way more by providing authenticity.</p>
+<h3 id="whats-poly1305">What&rsquo;s Poly1305</h3>
+<p>Fundamentally, Poly1305 is a different class of MAC that&rsquo;s originally designed and created by Daniel J. Bernstein. It can be used to verify the data integrity and the authenticity of a message. Poly1305 has been standardized by the Internet Engineering Task Force in <a href="https://datatracker.ietf.org/doc/html/rfc8439">RFC 8439</a>.</p>
+<h3 id="how-poly1305-algorithm-works">How poly1305 algorithm works</h3>
+<p>Poly1305 is a relatively simple MAC algorithm. Poly1305 takes a 32-byte one-time key (<strong>see warning below</strong> why its called one-time key) and an arbitrary length of message and produces a 16-byte tag.  As we can look at <a href="https://datatracker.ietf.org/doc/html/rfc8439">RFC 8439</a>, in pseudocode (in modified, simplified and commented version):</p>
 <pre tabindex="0"><code>fn poly1305_auth(key, msg) -&gt; [16]byte {
     # the key partitioned into two parts, called &#34;r&#34; and &#34;s&#34;.
     r, s := partitioned(key)
@@ -143,6 +155,16 @@
     return tag
 }
 </code></pre><p>If we look at above pseudocode, its looks nasty and simple. All the complexity is about doing performant constant-time math on numbers larger than any available numeric type.</p>
+<blockquote>
+<p><strong>⚠ WARNING:</strong>
+Using the same key to generate tags for multiple messages allows an attacker to forge tags. Always generate a new key per message you want to authenticate. If you are using this as a MAC for symmetric encryption please use <code>chacha20poly1305</code> instead.</p>
+</blockquote>
+<h3 id="state-of-poly1305-module-for-v-language">State of poly1305 module for V language</h3>
+<p>Luckily, we have  pure v <code>poly1305</code> module for V language recently. If you wanna to try, its availables at my github repos at <a href="https://github.com/blackshirt/poly1305.git">poly1305</a></p>
+<blockquote>
+<p><strong>⛔ DANGER</strong>:
+Security and cryptography was considerabled as “Hazardous Materials” module. You should <strong>ONLY</strong> use it if you’re 100% absolutely sure that you know what you’re doing because this module was written and provided as is without any guarantees and risks in your own. Just looks at the code and see what happens in it.</p>
+</blockquote>
 
 	</article>
 </main>
